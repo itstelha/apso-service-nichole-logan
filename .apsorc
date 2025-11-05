@@ -1,0 +1,206 @@
+{
+  "entities": [
+    {
+      "name": "Article",
+      "created_at": true,
+      "updated_at": true,
+      "fields": [
+        {
+          "name": "title",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": true
+        },
+        {
+          "name": "content",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "published_date",
+          "type": "timestamp",
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "varchar",
+          "nullable": false,
+          "values": [
+            "draft",
+            "published",
+            "archived"
+          ]
+        }
+      ],
+      "indexes": [
+        {
+          "fields": [
+            "title"
+          ],
+          "unique": true
+        }
+      ],
+      "uniques": [
+        {
+          "fields": [
+            "title"
+          ],
+          "name": "unique_article_title"
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "created_at": true,
+      "updated_at": true,
+      "fields": [
+        {
+          "name": "name",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": true
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "nullable": true
+        }
+      ],
+      "indexes": [
+        {
+          "fields": [
+            "name"
+          ],
+          "unique": true
+        }
+      ],
+      "uniques": [
+        {
+          "fields": [
+            "name"
+          ],
+          "name": "unique_category_name"
+        }
+      ]
+    },
+    {
+      "name": "ArticleCategory",
+      "created_at": true,
+      "updated_at": true,
+      "fields": [
+        {
+          "name": "article_id",
+          "type": "uuid",
+          "nullable": false
+        },
+        {
+          "name": "category_id",
+          "type": "uuid",
+          "nullable": false
+        }
+      ],
+      "indexes": [],
+      "uniques": []
+    },
+    {
+      "name": "User",
+      "created_at": true,
+      "updated_at": true,
+      "fields": [
+        {
+          "name": "username",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": true
+        },
+        {
+          "name": "email",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": true
+        },
+        {
+          "name": "password_hash",
+          "type": "varchar",
+          "nullable": false
+        }
+      ],
+      "indexes": [
+        {
+          "fields": [
+            "username"
+          ],
+          "unique": true
+        },
+        {
+          "fields": [
+            "email"
+          ],
+          "unique": true
+        }
+      ],
+      "uniques": []
+    },
+    {
+      "name": "Comment",
+      "created_at": true,
+      "updated_at": true,
+      "fields": [
+        {
+          "name": "article_id",
+          "type": "uuid",
+          "nullable": false
+        },
+        {
+          "name": "user_id",
+          "type": "uuid",
+          "nullable": false
+        },
+        {
+          "name": "content",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false
+        }
+      ],
+      "indexes": [],
+      "uniques": []
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Article",
+      "to": "Category",
+      "type": "ManyToMany"
+    },
+    {
+      "from": "Article",
+      "to": "Comment",
+      "type": "OneToMany"
+    },
+    {
+      "from": "User",
+      "to": "Comment",
+      "type": "OneToMany"
+    },
+    {
+      "from": "Article",
+      "to": "ArticleCategory",
+      "type": "OneToMany"
+    },
+    {
+      "from": "Category",
+      "to": "ArticleCategory",
+      "type": "OneToMany"
+    }
+  ],
+  "_removedEntities": []
+}
