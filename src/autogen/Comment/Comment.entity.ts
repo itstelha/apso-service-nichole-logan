@@ -52,8 +52,5 @@ export class Comment {
   @Column({ type: 'text', nullable: false })
   content: string;
 
-  @Column({ type: 'timestamp', nullable: false })
-  created_at: Date;
-
   // Associations
 }

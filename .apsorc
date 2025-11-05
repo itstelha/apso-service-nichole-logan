@@ -15,12 +15,16 @@
         {
           "name": "content",
           "type": "text",
-          "nullable": false
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": true
         },
         {
           "name": "published_date",
           "type": "timestamp",
-          "nullable": false
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": true
         },
         {
           "name": "status",
@@ -30,7 +34,9 @@
             "draft",
             "published",
             "archived"
-          ]
+          ],
+          "isIndex": false,
+          "isUnique": true
         }
       ],
       "indexes": [
@@ -65,7 +71,9 @@
         {
           "name": "description",
           "type": "text",
-          "nullable": true
+          "nullable": true,
+          "isIndex": false,
+          "isUnique": true
         }
       ],
       "indexes": [
@@ -93,12 +101,16 @@
         {
           "name": "article_id",
           "type": "uuid",
-          "nullable": false
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
         },
         {
           "name": "category_id",
           "type": "uuid",
-          "nullable": false
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
         }
       ],
       "indexes": [],
@@ -126,7 +138,9 @@
         {
           "name": "password_hash",
           "type": "varchar",
-          "nullable": false
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": true
         }
       ],
       "indexes": [
@@ -153,22 +167,23 @@
         {
           "name": "article_id",
           "type": "uuid",
-          "nullable": false
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
         },
         {
           "name": "user_id",
           "type": "uuid",
-          "nullable": false
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
         },
         {
           "name": "content",
           "type": "text",
-          "nullable": false
-        },
-        {
-          "name": "created_at",
-          "type": "timestamp",
-          "nullable": false
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
         }
       ],
       "indexes": [],

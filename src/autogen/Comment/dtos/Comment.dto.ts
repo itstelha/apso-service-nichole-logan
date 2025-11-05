@@ -10,8 +10,6 @@ export class CommentCreate {
   user_id: string;
   @ApiProperty()
   content: string;
-  @ApiProperty()
-  created_at: Date;
 }
 
 export class Comment {
@@ -23,8 +21,6 @@ export class Comment {
   user_id: string;
   @ApiProperty()
   content: string;
-  @ApiProperty()
-  created_at: Date;
   @ApiProperty()
   created_at: Date;
   @ApiProperty()
