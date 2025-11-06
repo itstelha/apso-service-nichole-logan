@@ -25,8 +25,4 @@ export class Article {
   published_date: Date;
   @ApiProperty()
   status: string;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
 }
